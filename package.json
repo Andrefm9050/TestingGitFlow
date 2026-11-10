@@ -1,0 +1,17 @@
+{
+  "name": "testing-git-flow",
+  "version": "1.0.0",
+  "description": "Minimal TypeScript starter project",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}
