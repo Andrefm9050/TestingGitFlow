@@ -14,13 +14,6 @@ interface User {
 const user: User = { id: 1, name: "Alice" };
 
 const server = createServer((req, res) => {
-  if (req.url?.startsWith("/echo?text=")) {
-    const text = decodeURIComponent(req.url.slice("/echo?text=".length));
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end(text);
-    return;
-  }
-
   if (req.url === "/time") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ now: new Date().toISOString() }));
