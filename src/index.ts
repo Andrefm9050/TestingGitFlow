@@ -20,10 +20,6 @@ const server = createServer((req, res) => {
     return;
   }
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
   if (req.url?.startsWith("/greet")) {
     const params = new URLSearchParams(req.url.split("?")[1] ?? "");
     const name = params.get("name") ?? "stranger";
@@ -47,11 +43,6 @@ const server = createServer((req, res) => {
     return;
   }
 
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> parent of ebaeeae (Update index.ts)
->>>>>>> Stashed changes
   if (req.url === "/time") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ now: new Date().toISOString() }));
