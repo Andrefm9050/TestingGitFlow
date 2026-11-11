@@ -20,6 +20,15 @@ const server = createServer((req, res) => {
     return;
   }
 
+  if (req.url?.startsWith("/sum?")) {
+    const params = new URLSearchParams(req.url.split("?")[1]);
+    const a = Number(params.get("a"));
+    const b = Number(params.get("b"));
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ a, b, sum: a + b }));
+    return;
+  }
+
   if (req.url === "/time") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ now: new Date().toISOString() }));
