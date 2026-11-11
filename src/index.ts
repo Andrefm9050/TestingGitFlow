@@ -20,6 +20,12 @@ const server = createServer((req, res) => {
     return;
   }
 
+  if (req.url === "/version") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("v1.0.0");
+    return;
+  }
+
   if (req.url === "/ping") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("pong");
