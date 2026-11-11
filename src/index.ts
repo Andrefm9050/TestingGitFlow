@@ -20,6 +20,30 @@ const server = createServer((req, res) => {
     return;
   }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+  if (req.url === "/random") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ random: Math.floor(Math.random() * 100) + 1 }));
+    return;
+  }
+
+  if (req.url?.startsWith("/sum?")) {
+    const params = new URLSearchParams(req.url.split("?")[1]);
+    const a = Number(params.get("a"));
+    const b = Number(params.get("b"));
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ a, b, sum: a + b }));
+    return;
+  }
+
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> parent of ebaeeae (Update index.ts)
+>>>>>>> Stashed changes
   if (req.url === "/time") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ now: new Date().toISOString() }));
