@@ -20,6 +20,10 @@ const server = createServer((req, res) => {
     return;
   }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
   if (req.url === "/random") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ random: Math.floor(Math.random() * 100) + 1 }));
@@ -35,6 +39,11 @@ const server = createServer((req, res) => {
     return;
   }
 
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> parent of ebaeeae (Update index.ts)
+>>>>>>> Stashed changes
   if (req.url === "/time") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ now: new Date().toISOString() }));
