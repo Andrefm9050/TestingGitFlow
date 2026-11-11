@@ -20,6 +20,12 @@ const server = createServer((req, res) => {
     return;
   }
 
+  if (req.url === "/ping") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("pong");
+    return;
+  }
+
   if (req.url?.startsWith("/greet")) {
     const params = new URLSearchParams(req.url.split("?")[1] ?? "");
     const name = params.get("name") ?? "stranger";
