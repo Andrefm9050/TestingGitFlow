@@ -24,6 +24,14 @@ const server = createServer((req, res) => {
 =======
 <<<<<<< HEAD
 >>>>>>> Stashed changes
+  if (req.url?.startsWith("/greet")) {
+    const params = new URLSearchParams(req.url.split("?")[1] ?? "");
+    const name = params.get("name") ?? "stranger";
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end(greet(name));
+    return;
+  }
+
   if (req.url === "/random") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ random: Math.floor(Math.random() * 100) + 1 }));
