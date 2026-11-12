@@ -14,6 +14,12 @@ interface User {
 const user: User = { id: 1, name: "Alice" };
 
 const server = createServer((req, res) => {
+  if (req.url === "/motd") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Today's motivation: small commits, clean history.");
+    return;
+  }
+
   if (req.url === "/hello") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Hello from Gitflow!");
