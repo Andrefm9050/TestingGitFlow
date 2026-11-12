@@ -21,6 +21,12 @@ const MOTIVATIONS = [
 ];
 
 const server = createServer((req, res) => {
+  if (req.url === "/tea") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Tea is served. (The teapot was busy.)");
+    return;
+  }
+
   if (req.url === "/idea") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Idea: one endpoint per cycle keeps learning simple.");
