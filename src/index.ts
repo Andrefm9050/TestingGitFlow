@@ -14,6 +14,12 @@ interface User {
 const user: User = { id: 1, name: "Alice" };
 
 const server = createServer((req, res) => {
+  if (req.url === "/hello") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Hello from Gitflow!");
+    return;
+  }
+
   if (req.url === "/about") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Minimal TypeScript server for Gitflow practice.");
