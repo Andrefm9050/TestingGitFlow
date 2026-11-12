@@ -21,6 +21,12 @@ const MOTIVATIONS = [
 ];
 
 const server = createServer((req, res) => {
+  if (req.url === "/smile") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Keep smiling, the cycle works! 🙂");
+    return;
+  }
+
   if (req.url === "/focus") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Focus: one branch, one change, one PR.");
