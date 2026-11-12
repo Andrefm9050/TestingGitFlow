@@ -14,6 +14,12 @@ interface User {
 const user: User = { id: 1, name: "Alice" };
 
 const server = createServer((req, res) => {
+  if (req.url === "/coffee") {
+    res.writeHead(418, { "Content-Type": "text/plain" });
+    res.end("I'm a teapot (but I'd love to brew you a coffee).");
+    return;
+  }
+
   if (req.url === "/motd") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Today's motivation: small commits, clean history.");
