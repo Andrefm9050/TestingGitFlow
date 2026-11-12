@@ -21,6 +21,12 @@ const MOTIVATIONS = [
 ];
 
 const server = createServer((req, res) => {
+  if (req.url === "/idea") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Idea: one endpoint per cycle keeps learning simple.");
+    return;
+  }
+
   if (req.url === "/motivation") {
     const index = Math.floor(Math.random() * MOTIVATIONS.length);
     res.writeHead(200, { "Content-Type": "text/plain" });
