@@ -21,6 +21,12 @@ const MOTIVATIONS = [
 ];
 
 const server = createServer((req, res) => {
+  if (req.url === "/motto") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Practice makes the flow invisible.");
+    return;
+  }
+
   if (req.url === "/thanks-dev") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Thanks, dev! The alias flow works.");
