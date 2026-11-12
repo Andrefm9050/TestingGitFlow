@@ -14,7 +14,20 @@ interface User {
 ///////////////////////////
 const user: User = { id: 1, name: "Alice" };
 
+const MOTIVATIONS = [
+  "Small commits, clean history.",
+  "A merge a day keeps conflicts away.",
+  "Review first, merge second.",
+];
+
 const server = createServer((req, res) => {
+  if (req.url === "/motivation") {
+    const index = Math.floor(Math.random() * MOTIVATIONS.length);
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end(MOTIVATIONS[index]);
+    return;
+  }
+
   if (req.url === "/count") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ visits: Date.now() }));
