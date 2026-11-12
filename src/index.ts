@@ -3,7 +3,8 @@ import { createServer } from "node:http";
 const PORT = 3000;
 
 function greet(name: string): string {
-  return `Hello, ${name}!`;
+  const emoji = name.length % 2 === 0 ? "😊" : "👋";
+  return `${emoji} Hello, ${name}!`;
 }
 
 interface User {
@@ -14,6 +15,12 @@ interface User {
 const user: User = { id: 1, name: "Alice" };
 
 const server = createServer((req, res) => {
+  if (req.url === "/count") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ visits: Date.now() }));
+    return;
+  }
+
   if (req.url === "/thanks") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Thanks for practicing Gitflow!");
