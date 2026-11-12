@@ -21,6 +21,12 @@ const MOTIVATIONS = [
 ];
 
 const server = createServer((req, res) => {
+  if (req.url === "/thanks-dev") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Thanks, dev! The alias flow works.");
+    return;
+  }
+
   if (req.url === "/tea") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Tea is served. (The teapot was busy.)");
