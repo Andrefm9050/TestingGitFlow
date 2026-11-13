@@ -21,6 +21,12 @@ const MOTIVATIONS = [
 ];
 
 const server = createServer((req, res) => {
+  if (req.url === "/notes") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Notes: feature branch, merge to develop, release to main.");
+    return;
+  }
+
   if (req.url === "/update") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Everything is up to date. ✅");
